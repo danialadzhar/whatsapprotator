@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Hash;
 
 
 Route::get('pass', function () {
-    echo Hash::make('brandname');
+    echo Hash::make('test12345');
 });
 
 /*
