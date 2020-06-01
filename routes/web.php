@@ -13,12 +13,12 @@
 
 use Illuminate\Support\Facades\Hash;
 
-/*
+
 Route::get('pass', function () {
     echo Hash::make('brandname');
 });
 
-
+/*
 Route::get('pm', function () {
     return view('welcome');
 });
