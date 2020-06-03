@@ -148,7 +148,7 @@ class WhatsappController extends Controller
 
         $lead->lead_id = 'L' . rand(10000,99999);
         $lead->name = $request->name;
-        $lead->phonenumber = '60' . $request->phonenumber;
+        $lead->phone_number = '60' . $request->phonenumber;
         $lead->whatsapp_id = $getwhatsapp_id->whatsapp_id;
         $lead->whatsapp_campaign_id = $request->whatsapp_campaign_id;        
         $lead->save();
