@@ -41,6 +41,12 @@ class CampaignController extends Controller
         $insert->whatsapp_campaign_id = uniqid();
         $insert->title = $request->title;
         $insert->description = $request->description;
+        $insert->whatsapp_answer = $request->answer;
+        $insert->status = 'Active';
+
+        $insert->save();
+
+        return redirect()->back()->with('success', 'Campaign Created!');
 
     }
 
