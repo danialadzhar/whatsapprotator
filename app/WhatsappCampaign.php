@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class WhatsappCampaign extends Model
 {
     
-    protected $table = 'whatsapp_campaign';
+    protected $table = 'whatsappcampaign';
 
     protected $fillable = [
 
