@@ -63,3 +63,10 @@ Route::get('admin/whatsapp/lead', 'LeadController@index');
 Route::get('admin/marketing/whatsapp/lead/delete/{id}', 'LeadController@destroy');
 
 ######################## Lead Controller ########################
+
+
+######################## Campaign Controller ########################
+
+Route::get('admin/whatsapp/campaign', 'CampaignController@create');
+
+######################## Campaign Controller ########################
