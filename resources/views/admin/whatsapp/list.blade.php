@@ -73,7 +73,7 @@
         @foreach($whatsapp as $list)
           <tr>
               <td>{{ $count++ }}</td>
-              <td>{{ $list->fullname }}</td>
+              <td>{{ $list->name }}</td>
               <td>{{ $list->phonenumber }}</td>
               <td><a href="https://api.whatsapp.com/send?phone={{ $list->phonenumber }}">LINK</a></td>
               <td>{{ $list->created_at }}</td>
