@@ -36,20 +36,20 @@ Route::get('admin/logout', 'AdminController@logout');
 ######################## Home Controller ########################
 
 Route::get('admin', 'HomeController@index');
-Route::get('admin/marketing', 'HomeController@marketing');
+Route::get('admin/whatsapp', 'HomeController@whatsapp');
 
 ######################## Home Controller ########################
 
 
 ######################## Whatsapp Controller ########################
 
-Route::get('admin/marketing/whatsapp', 'WhatsappController@index');
+Route::get('admin/whatsapp/rotator', 'WhatsappController@index');
 Route::post('rotate', 'WhatsappController@whatsapprotate');
 
 // Delete
-Route::get('admin/marketing/whatsapp/delete/{id}','WhatsappController@destroy');
+Route::get('admin/whatsapp/delete/{id}','WhatsappController@destroy');
 
-Route::post('admin/marketing/whatsapp/post', 'WhatsappController@store');
+Route::post('admin/whatsapp/post', 'WhatsappController@store');
 
 ######################## Whatsapp Controller ########################
 
@@ -57,7 +57,7 @@ Route::post('admin/marketing/whatsapp/post', 'WhatsappController@store');
 ######################## Lead Controller ########################
 
 Route::get('/', 'LeadController@create');
-Route::get('admin/marketing/whatsapp/lead', 'LeadController@index');
+Route::get('admin/whatsapp/lead', 'LeadController@index');
 
 // Delete
 Route::get('admin/marketing/whatsapp/lead/delete/{id}', 'LeadController@destroy');

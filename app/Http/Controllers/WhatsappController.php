@@ -20,7 +20,7 @@ class WhatsappController extends Controller
         $count = 1;
         $whatsapp = WhatsappNumber::orderBy('id','Desc')->get();
 
-        return view('admin.marketing.whatsapp.list', compact('whatsapp','count'));
+        return view('admin.whatsapp.list', compact('whatsapp','count'));
     }
 
     /**
