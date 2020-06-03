@@ -119,7 +119,7 @@ class WhatsappController extends Controller
             Random Phone Number
         */
         foreach ($phonenumber as $value) {
-            $addresses[] = $value->phonenumber;
+            $addresses[] = $value->phone_number;
         }
         
         $size = count($addresses);
@@ -130,13 +130,13 @@ class WhatsappController extends Controller
             Add other phone to queue
         */
         $wasapqueue = new WhatsappQueue;
-        $wasapqueue->phonenumber = $randomphone;
+        $wasapqueue->phone_number = $randomphone;
         $wasapqueue->save();
         
         /*
             Delete phone number from list
         */
-        $list = ActiveNumber::where('phonenumber', $randomphone)->first();
+        $list = ActiveNumber::where('phone_number', $randomphone)->first();
         $list->delete();
 
         /*
@@ -150,7 +150,7 @@ class WhatsappController extends Controller
         $lead->name = $request->name;
         $lead->phonenumber = '60' . $request->phonenumber;
         $lead->whatsapp_id = $getwhatsapp_id->whatsapp_id;
-        
+        $lead->whatsapp_campaign_id = $request->whatsapp_campaign_id;        
         $lead->save();
         
         return view('admin.whatsapp.whatsapp', compact('randomphone'));

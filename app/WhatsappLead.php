@@ -12,6 +12,7 @@ class WhatsappLead extends Model
         'lead_id',
         'name',
         'phone_number',
-        'whatsapp_id'
+        'whatsapp_id',
+        'whatsapp_campaign_id'
     ];
 }

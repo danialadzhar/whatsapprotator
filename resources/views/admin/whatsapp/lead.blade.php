@@ -44,7 +44,7 @@
                 <td>{{ $whatsapp->description }}</td>
                 <td>{{ $whatsapp->status }}</td>
                 <td>
-                    <center><a href="{{ url('/') }}/{{ $whatsapp->whatsapp_campaign_id }}"><button class="btn btn-light btn-sm"><i class="fas fa-eye"></i></button></a></center>
+                    <center><a href="{{ url('/') }}/{{ $whatsapp->whatsapp_campaign_id }}" target="_blank"><button class="btn btn-light btn-sm"><i class="fa fa-eye"></i></button></a></center>
                 </td>
             </tr>
           @endforeach

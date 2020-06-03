@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Whatsapp| Eskayviecare</title>
+    <title>{{ $whatsapp_campaign->title }} | Momentum Internet</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
@@ -14,11 +14,12 @@
             <div class="card shadow" style="margin-top: 150px;">
                 <div class="card-body pr-4 pl-4 pt-5 pb-5">
                     <div class="login-title">
-                        <h4>Whatsapp | Brand Name</h4>
+                        <h4>{{ $whatsapp_campaign->title }}</h4>
                     </div>
                     <div class="login-form mt-4">
                         <form action="{{ url('rotate') }}" method="POST">
                             @csrf
+                            <input type="hidden" name="whatsapp_campaign" value=" {{ $whatsapp_campaign->whatsapp_campaign_id }} ">
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <input type="text" name="name" placeholder="Nama Panggilan Anda" class="form-control" required autofocus>

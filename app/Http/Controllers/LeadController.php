@@ -41,7 +41,7 @@ class LeadController extends Controller
         if($phonenumber->isEmpty()){
             foreach ($list as $whatsapp) {
                 ActiveNumber::create(array(
-                    'phonenumber' => $whatsapp->phonenumber
+                    'phone_number' => $whatsapp->phonenumber
                 ));
                 foreach($deletequeue as $queue){
                     $queue->delete();
