@@ -21,7 +21,7 @@ class LeadController extends Controller
         $count = 1;
         $campaign = WhatsappCampaign::orderBy('id','Desc')->get();
 
-        return view('admin.whatsapp.lead', compact('campaign'));
+        return view('admin.whatsapp.lead', compact('campaign', 'count'));
     }
 
     /**
