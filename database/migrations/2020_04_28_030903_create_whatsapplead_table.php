@@ -19,6 +19,7 @@ class CreateWhatsappleadTable extends Migration
             $table->string('name');
             $table->string('phone_number');
             $table->string('whatsapp_id');
+            $table->string('whatsapp_campaign_id');
             $table->timestamps();
         });
     }
