@@ -44,11 +44,11 @@ class WhatsappController extends Controller
         $insert = new WhatsappNumber;
         $insert->whatsapp_id = 'W' . rand(10000,99999);
         $insert->name = $request->fullname;
-        $insert->phonenumber = '60' . $request->phonenumber;
+        $insert->phonenumber = '6' . $request->phonenumber;
         $insert->save();
 
         $list = new WhatsappQueue;
-        $list->phone_number = '60' . $request->phonenumber;
+        $list->phone_number = '6' . $request->phonenumber;
         $list->save();
 
         return redirect()->back()->with('success', 'New Whatsapp Number Added!');
