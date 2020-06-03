@@ -18,7 +18,6 @@ class CreateWhatsappcampaignTable extends Migration
             $table->string('whatsapp_campaign_id');
             $table->string('title');
             $table->text('description');
-            $table->string('program');
             $table->text('whatsapp_answer');
             $table->string('status');
             $table->timestamps();

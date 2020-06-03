@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\WhatsappCampaign;
 
 class CampaignController extends Controller
 {
@@ -34,7 +35,13 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $insert = new WhatsappCampaign;
+        
+        $insert->whatsapp_campaign_id = uniqid();
+        $insert->title = $request->title;
+        $insert->description = $request->description;
+
     }
 
     /**

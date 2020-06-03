@@ -42,16 +42,6 @@
                 <label>Comment</label>
                 <textarea class="form-control" name="answer" placeholder="Enter Answer" rows="3"></textarea>
             </div>
-            <div class="form-group">
-                <label>Program</label>
-                <select class="form-control" name="program" required>
-                    <option value="">-- Choose Program --</option>
-                    <option value="RPM">Roket Pemasaran Momentum</option>
-                    <option value="ARB">Advance Roket Bisnes</option>
-                    <option value="IMPI">Intesif Momentum Pemasaran Internet</option>
-                    <option value="MBM">Momentum Bisnes Mentoring</option>
-                </select>
-            </div>
             <button class="btn btn-danger"><i class="fas fa-plus"></i> Add New Campaign</button>
         </form>
     </div>

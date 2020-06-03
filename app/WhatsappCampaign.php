@@ -14,7 +14,6 @@ class WhatsappCampaign extends Model
         'whatsapp_campaign_id',
         'title',
         'description',
-        'program',
         'whatsapp_answer',
         'status'
 
