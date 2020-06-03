@@ -137,13 +137,13 @@ class WhatsappController extends Controller
             Delete phone number from list
         */
         $list = ActiveNumber::where('phone_number', $randomphone)->first();
-        $list->delete();
 
         /*
             Save Lead
         */
         $getwhatsapp_id = WhatsappNumber::where('phonenumber', $list->phonenumber)->first();
 
+        
         $lead = new WhatsappLead;
 
         $lead->lead_id = 'L' . rand(10000,99999);
@@ -152,6 +152,10 @@ class WhatsappController extends Controller
         $lead->whatsapp_id = $getwhatsapp_id->whatsapp_id;
         $lead->whatsapp_campaign_id = $request->whatsapp_campaign_id;        
         $lead->save();
+        $list->delete();
+        
+
+        //dd($getwhatsapp_id->whatsapp_id);
         
         return view('admin.whatsapp.whatsapp', compact('randomphone'));
 
