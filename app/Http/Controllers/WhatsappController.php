@@ -48,7 +48,7 @@ class WhatsappController extends Controller
         $insert->save();
 
         $list = new WhatsappQueue;
-        $list->phonenumber = '60' . $request->phonenumber;
+        $list->phone_number = '60' . $request->phonenumber;
         $list->save();
 
         return redirect()->back()->with('success', 'New Whatsapp Number Added!');
