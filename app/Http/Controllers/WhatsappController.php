@@ -7,6 +7,7 @@ use App\WhatsappNumber;
 use App\ActiveNumber;
 use App\WhatsappLead;
 use App\WhatsappQueue;
+use App\WhatsappCampaign;
 
 class WhatsappController extends Controller
 {
