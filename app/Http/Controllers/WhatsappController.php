@@ -154,10 +154,11 @@ class WhatsappController extends Controller
         $lead->whatsapp_campaign_id = $request->whatsapp_campaign;        
         $lead->save();
         
+        $whatsapp_campaign = WhatsappCampaign::where('whatsapp_campaign_id', $request->whatsapp_campaign)->first();
 
         //dd($getwhatsapp_id->whatsapp_id);
         
-        return view('admin.whatsapp.whatsapp', compact('randomphone'));
+        return view('admin.whatsapp.whatsapp', compact('randomphone','whatsapp_campaign'));
 
     }
 }
