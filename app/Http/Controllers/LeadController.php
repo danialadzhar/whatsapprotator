@@ -7,6 +7,7 @@ use App\WhatsappLead;
 use App\ActiveNumber;
 use App\WhatsappQueue;
 use App\WhatsappNumber;
+use App\WhatsappCampaign;
 
 class LeadController extends Controller
 {
@@ -18,10 +19,9 @@ class LeadController extends Controller
     public function index()
     {
         $count = 1;
-        $whatsapp = WhatsappLead::orderBy('id','Desc')->get();
-        $whatsapp_list = WhatsappNumber::all();
+        $campaign = WhatsappCampaign::orderBy('id','Desc')->get();
 
-        return view('admin.whatsapp.lead', compact('whatsapp','count','whatsapp_list'));
+        return view('admin.whatsapp.lead', compact('campaign'));
     }
 
     /**
@@ -29,8 +29,9 @@ class LeadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create($id)
+    {   
+        $whatsapp_campaign = WhatsappCampaign::where('whatsapp_campaign_id', $id)->first();
         $deletequeue = WhatsappQueue::all();
         $phonenumber = ActiveNumber::all();
 
@@ -50,7 +51,7 @@ class LeadController extends Controller
             sleep(5);
             return redirect('/');
         }else{
-            return view('admin.marketing.whatsapp.landingpage');
+            return view('admin.whatsapp.landingpage', compact('whatsapp_campaign'));
         }
         
         //return view('admin.marketing.whatsapp.landingpage');

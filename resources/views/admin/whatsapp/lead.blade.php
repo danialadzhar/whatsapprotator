@@ -30,27 +30,23 @@
     <thead>
       <tr>
           <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Phone Number</th>
-          <th scope="col">Assign By</th>
-          <th scope="col">Date</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Status</th>
           <th scope="col"><i class="fas fa-cogs mx-auto"></i></th>
       </tr>
     </thead>
     <tbody>
-        @foreach($whatsapp as $list)
-            @foreach($whatsapp_list as $assign)
-                @if($assign->whatsapp_id == $list->whatsapp_id)
-                    <tr>
-                        <td>{{ $count++ }}</td>
-                        <td>{{ $list->name }}</td>
-                        <td>{{ $list->phonenumber }}</td>
-                        <td>{{ $assign->name }}</td>
-                        <td>{{ $list->created_at }}</td>
-                        <td><center><a href="{{ url('admin/marketing/whatsapp/lead/delete') }}/{{ $list->lead_id }}"><button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button></a></center></td>
-                    </tr>
-                @endif
-            @endforeach
+        @foreach($campaign as $whatsapp)
+            <tr>
+                <td>{{ $count++ }}</td>
+                <td>{{ $whatsapp->title }}</td>
+                <td>{{ $whatsapp->description }}</td>
+                <td>{{ $whatsapp->status }}</td>
+                <td>
+                    <center><a href="{{ url('/') }}/{{ $whatsapp->whatsapp_campaign_id }}"><button class="btn btn-light btn-sm"><i class="fas fa-eye"></i></button></a></center>
+                </td>
+            </tr>
           @endforeach
     </tbody>
 </table>

@@ -56,7 +56,7 @@ Route::post('admin/whatsapp/post', 'WhatsappController@store');
 
 ######################## Lead Controller ########################
 
-Route::get('/', 'LeadController@create');
+Route::get('/{id}', 'LeadController@create');
 Route::get('admin/whatsapp/lead', 'LeadController@index');
 
 // Delete

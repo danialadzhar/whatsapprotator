@@ -153,7 +153,7 @@ class WhatsappController extends Controller
         
         $lead->save();
         
-        return view('admin.marketing.whatsapp.whatsapp', compact('randomphone'));
+        return view('admin.whatsapp.whatsapp', compact('randomphone'));
 
     }
 }
