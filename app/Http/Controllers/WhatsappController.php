@@ -47,7 +47,7 @@ class WhatsappController extends Controller
         $insert->phonenumber = '60' . $request->phonenumber;
         $insert->save();
 
-        $list = new WhatsappList;
+        $list = new WhatsappQueue;
         $list->phonenumber = '60' . $request->phonenumber;
         $list->save();
 
