@@ -39,19 +39,30 @@ class LeadController extends Controller
         $list = WhatsappNumber::all();
 
         if($phonenumber->isEmpty()){
+
             foreach ($list as $whatsapp) {
+
                 ActiveNumber::create(array(
+
                     'phone_number' => $whatsapp->phonenumber
+
                 ));
+
                 foreach($deletequeue as $queue){
+
                     $queue->delete();
+
                 }
+
             }
 
             sleep(5);
-            return redirect('/');
-        }else{
             return view('admin.whatsapp.landingpage', compact('whatsapp_campaign'));
+
+        }else{
+
+            return view('admin.whatsapp.landingpage', compact('whatsapp_campaign'));
+
         }
         
         //return view('admin.marketing.whatsapp.landingpage');
