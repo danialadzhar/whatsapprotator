@@ -42,17 +42,16 @@ class WhatsappController extends Controller
      */
     public function store(Request $request)
     {
+        $whatsapp_id = 'W' . uniqid();
+
         $insert = new WhatsappNumber;
-        $insert->whatsapp_id = 'W' . rand(10000,99999);
+        $insert->whatsapp_id = $whatsapp_id;
         $insert->name = $request->fullname;
         $insert->phonenumber = '6' . $request->phonenumber;
         $insert->save();
 
-        $list = new WhatsappQueue;
-        $list->phone_number = '6' . $request->phonenumber;
-        $list->save();
-
         return redirect()->back()->with('success', 'New Whatsapp Number Added!');
+
     }
 
     /**
