@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\WhatsappCampaign;
 use App\WhatsappNumber;
+use App\WhatsappQueue;
 
 class CampaignController extends Controller
 {
@@ -39,10 +40,26 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
+        $whatsapp_campaign_id = uniqid();
+
+        foreach ($request->whatsapp_id as $key => $value) {
+            
+            $whatsapp_number = WhatsappNumber::where('whatsapp_id', $value)->get();
+            WhatsappQueue::create(array(
+
+                'whatsapp_id' => $value,
+                'whatsapp_campaign_id' => $whatsapp_campaign_id,
+                'phonenumber' => $whatsapp_number->phonenumber
+
+            ));
+
+        }
+
+        sleep(2);
         
         $insert = new WhatsappCampaign;
         
-        $insert->whatsapp_campaign_id = uniqid();
+        $insert->whatsapp_campaign_id = $whatsapp_campaign_id;
         $insert->title = $request->title;
         $insert->description = $request->description;
         $insert->whatsapp_answer = $request->answer;

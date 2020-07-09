@@ -46,8 +46,8 @@
             <h6>Whatsapp Number : </h6>
             @foreach($whatsapp_number as $whatsapp)
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="{{ $whatsapp->whatsapp_id }}" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" name="whatsapp_id[]" value="{{ $whatsapp->whatsapp_id }}">
+                    <label class="form-check-label">
                         {{ $whatsapp->name }}
                     </label>
                 </div>

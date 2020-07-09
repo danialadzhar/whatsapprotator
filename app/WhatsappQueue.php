@@ -11,6 +11,6 @@ class WhatsappQueue extends Model
     protected $fillable = [
         'whatsapp_id',
         'whatsapp_campaign_id',
-        'phone_number'
+        'phonenumber'
     ];
 }
