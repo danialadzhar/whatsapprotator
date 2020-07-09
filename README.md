@@ -10,6 +10,8 @@ Whatsapp Rotator is easiest way for customer to contact any Customer Support fro
 
 **1. Whatsapp Campaign**
 - Can choose whatsapp number for specific campaign
+- Update attributes name
+- Added new column
 
 ## VERSION 0.0.1
 
