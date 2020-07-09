@@ -9,7 +9,7 @@ Whatsapp Rotator is easiest way for customer to contact any Customer Support fro
 ## VERSION 0.0.2
 
 **1. Whatsapp Campaign**
-- Can choose whatsapp number for specifi campaign
+- Can choose whatsapp number for specific campaign
 
 ## VERSION 0.0.1
 
