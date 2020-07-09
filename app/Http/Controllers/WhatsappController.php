@@ -129,8 +129,8 @@ class WhatsappController extends Controller
         }
         
         // Size
-        $whatsapp_id_size = count($phonenumber);
-        $whatsapp_campaign_id_size = count($phonenumber);
+        $whatsapp_id_size = count($whatsapp_id);
+        $whatsapp_campaign_id_size = count($whatsapp_campaign_id);
         $phonenumber_size = count($phonenumber);
 
         // Random
