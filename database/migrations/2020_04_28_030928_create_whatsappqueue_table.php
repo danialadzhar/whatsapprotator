@@ -15,6 +15,8 @@ class CreateWhatsappqueueTable extends Migration
     {
         Schema::create('whatsappqueue', function (Blueprint $table) {
             $table->id();
+            $table->string('whatsapp_id');
+            $table->string('whatsapp_campaign_id');
             $table->string('phone_number');
             $table->timestamps();
         });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\WhatsappCampaign;
+use App\WhatsappNumber;
 
 class CampaignController extends Controller
 {
@@ -23,8 +24,11 @@ class CampaignController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.whatsapp.campaign');
+    {   
+
+        $whatsapp_number = WhatsappNumber::all();
+
+        return view('admin.whatsapp.campaign', compact('whatsapp_number'));
     }
 
     /**

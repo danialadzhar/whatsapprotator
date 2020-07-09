@@ -15,6 +15,8 @@ class CreateActivenumberTable extends Migration
     {
         Schema::create('activenumber', function (Blueprint $table) {
             $table->id();
+            $table->string('whatsapp_id');
+            $table->string('whatsapp_campaign_id');
             $table->string('phone_number');
             $table->timestamps();
         });

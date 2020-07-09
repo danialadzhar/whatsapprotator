@@ -42,7 +42,19 @@
                 <label>Comment</label>
                 <textarea class="form-control" name="answer" placeholder="Enter Answer" rows="3"></textarea>
             </div>
-            <button class="btn btn-danger"><i class="fas fa-plus"></i> Add New Campaign</button>
+
+            <h6>Whatsapp Number : </h6>
+            @foreach($whatsapp_number as $whatsapp)
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="{{ $whatsapp->whatsapp_id }}" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        {{ $whatsapp->name }}
+                    </label>
+                </div>
+            @endforeach
+
+
+            <button class="btn btn-danger mt-5"><i class="fas fa-plus"></i> Add New Campaign</button>
         </form>
     </div>
 </div>

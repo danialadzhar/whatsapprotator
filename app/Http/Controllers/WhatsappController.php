@@ -110,22 +110,23 @@ class WhatsappController extends Controller
      * @param  \Illuminate\Http\Request  $request
      */
     public function whatsapprotate(Request $request){
-        $addresses = array();
+        
+        $number = array();
         $phonenumber = ActiveNumber::all();
         $list = WhatsappNumber::all();
-        // Nama Customer
-        $namacustomer = $request->name;
 
         /*
             Random Phone Number
         */
         foreach ($phonenumber as $value) {
-            $addresses[] = $value->phone_number;
+
+            $number[] = $value->phone_number;
+
         }
         
-        $size = count($addresses);
-        $randomIndex = rand(0, $size - 1);
-        $randomphone = $addresses[$randomIndex];
+        $size = count($number);
+        $random = rand(0, $size - 1);
+        $randomphone = $number[$random];
         
         /*
             Add other phone to queue
