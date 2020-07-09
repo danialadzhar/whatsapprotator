@@ -45,13 +45,18 @@ class CampaignController extends Controller
         foreach ($request->whatsapp_id as $key => $value) {
             
             $whatsapp_number = WhatsappNumber::where('whatsapp_id', $value)->get();
-            WhatsappQueue::create(array(
 
-                'whatsapp_id' => $value,
-                'whatsapp_campaign_id' => $whatsapp_campaign_id,
-                'phonenumber' => $whatsapp_number->phonenumber
+            foreach ($whatsapp_number as $whatsapp) {
+                
+                WhatsappQueue::create(array(
 
-            ));
+                    'whatsapp_id' => $value,
+                    'whatsapp_campaign_id' => $whatsapp_campaign_id,
+                    'phonenumber' => $whatsapp_number->phonenumber
+    
+                ));
+
+            }
 
         }
 
