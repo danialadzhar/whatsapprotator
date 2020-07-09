@@ -11,7 +11,7 @@ class WhatsappLead extends Model
     protected $fillable = [
         'lead_id',
         'name',
-        'phone_number',
+        'phonenumber',
         'whatsapp_id',
         'whatsapp_campaign_id'
     ];

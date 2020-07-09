@@ -124,7 +124,7 @@ class WhatsappController extends Controller
 
             $whatsapp_id[] = $number->whatsapp_id;
             $whatsapp_campaign_id[] = $number->whatsapp_campaign_id;
-            $phonenumber[] = $number->phone_number;
+            $phonenumber[] = $number->phonenumber;
 
         }
         
@@ -134,7 +134,7 @@ class WhatsappController extends Controller
         $phonenumber_size = count($phonenumber);
 
         // Random
-        $whatsapp_id_random = rand(0, $$whatsapp_id_size - 1);
+        $whatsapp_id_random = rand(0, $whatsapp_id_size - 1);
         $whatsapp_campaign_id_random = rand(0, $whatsapp_campaign_id_size - 1);
         $phonenumber_random = rand(0, $phonenumber_size - 1);
 
@@ -148,26 +148,26 @@ class WhatsappController extends Controller
 
         $whatsapp_queue->whatsapp_id = $whatsapp_id[$whatsapp_id_random];
         $whatsapp_queue->whatsapp_campaign_id = $whatsapp_campaign_id[$whatsapp_campaign_id_random];
-        $whatsapp_queue->phone_number = $phonenumber[$phonenumber_random];
+        $whatsapp_queue->phonenumber = $phonenumber[$phonenumber_random];
 
         $whatsapp_queue->save();
         
         /*
             Delete phone number from Active Number
         */
-        $get_active_number = ActiveNumber::where('phone_number', $whatsapp_phone_number)->first();
+        $get_active_number = ActiveNumber::where('phonenumber', $whatsapp_phone_number)->first();
 
         /*
             Save Lead
         */
-        $getwhatsapp_id = WhatsappNumber::where('phonenumber', $get_active_number->phone_number)->first();
+        $getwhatsapp_id = WhatsappNumber::where('phonenumber', $get_active_number->phonenumber)->first();
 
         
         $lead = new WhatsappLead;
 
         $lead->lead_id = 'L' . rand(10000,99999);
         $lead->name = $request->name;
-        $lead->phone_number = '60' . $request->phonenumber;
+        $lead->phonenumber = '60' . $request->phonenumber;
         $lead->whatsapp_id = $getwhatsapp_id->whatsapp_id;
         $lead->whatsapp_campaign_id = $request->whatsapp_campaign;        
         $lead->save();
