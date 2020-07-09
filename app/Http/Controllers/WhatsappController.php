@@ -138,6 +138,7 @@ class WhatsappController extends Controller
         $whatsapp_campaign_id_random = rand(0, $whatsapp_campaign_id_size - 1);
         $phonenumber_random = rand(0, $phonenumber_size - 1);
 
+        // Random Phone Number
         $whatsapp_phone_number = $phonenumber[$phonenumber_random];
         
         /*
