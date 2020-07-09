@@ -110,40 +110,56 @@ class WhatsappController extends Controller
      */
     public function whatsapprotate(Request $request){
         
-        $number = array();
-        $phonenumber = ActiveNumber::all();
-        $list = WhatsappNumber::all();
+        // Array
+        $whatsapp_id = array();
+        $whatsapp_campaign_id = array();
+        $phonenumber = array();
+
+        $activenumber = ActiveNumber::all();
 
         /*
             Random Phone Number
         */
-        foreach ($phonenumber as $value) {
+        foreach ($activenumber as $number) {
 
-            $number[] = $value->phone_number;
+            $whatsapp_id[] = $number->whatsapp_id;
+            $whatsapp_campaign_id[] = $number->whatsapp_campaign_id;
+            $phonenumber[] = $number->phone_number;
 
         }
         
-        $size = count($number);
-        $random = rand(0, $size - 1);
-        $randomphone = $number[$random];
+        // Size
+        $whatsapp_id_size = count($phonenumber);
+        $whatsapp_campaign_id_size = count($phonenumber);
+        $phonenumber_size = count($phonenumber);
+
+        // Random
+        $whatsapp_id_random = rand(0, $$whatsapp_id_size - 1);
+        $whatsapp_campaign_id_random = rand(0, $whatsapp_campaign_id_size - 1);
+        $phonenumber_random = rand(0, $phonenumber_size - 1);
+
+        $whatsapp_phone_number = $phonenumber[$phonenumber_random];
         
         /*
             Add other phone to queue
         */
-        $wasapqueue = new WhatsappQueue;
-        $wasapqueue->phone_number = $randomphone;
-        $wasapqueue->save();
+        $whatsapp_queue = new WhatsappQueue;
+
+        $whatsapp_queue->whatsapp_id = $whatsapp_id[$whatsapp_id_random];
+        $whatsapp_queue->whatsapp_campaign_id = $whatsapp_campaign_id[$whatsapp_campaign_id_random];
+        $whatsapp_queue->phone_number = $phonenumber[$phonenumber_random];
+
+        $whatsapp_queue->save();
         
         /*
-            Delete phone number from list
+            Delete phone number from Active Number
         */
-        $list = ActiveNumber::where('phone_number', $randomphone)->first();
-        $list->delete();
+        $get_active_number = ActiveNumber::where('phone_number', $whatsapp_phone_number)->first();
 
         /*
             Save Lead
         */
-        $getwhatsapp_id = WhatsappNumber::where('phonenumber', $list->phone_number)->first();
+        $getwhatsapp_id = WhatsappNumber::where('phonenumber', $get_active_number->phone_number)->first();
 
         
         $lead = new WhatsappLead;
@@ -157,9 +173,9 @@ class WhatsappController extends Controller
         
         $whatsapp_campaign = WhatsappCampaign::where('whatsapp_campaign_id', $request->whatsapp_campaign)->first();
 
-        //dd($getwhatsapp_id->whatsapp_id);
+        $get_active_number->delete();
         
-        return view('admin.whatsapp.whatsapp', compact('randomphone','whatsapp_campaign'));
+        return view('admin.whatsapp.whatsapp', compact('whatsapp_phone_number','whatsapp_campaign'));
 
     }
 }

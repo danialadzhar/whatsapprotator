@@ -52,7 +52,7 @@ class CampaignController extends Controller
 
                     'whatsapp_id' => $value,
                     'whatsapp_campaign_id' => $whatsapp_campaign_id,
-                    'phonenumber' => $whatsapp_number->phonenumber
+                    'phonenumber' => $whatsapp->phonenumber
     
                 ));
 

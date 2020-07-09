@@ -1,12 +1,12 @@
 <script>
     if(isMobile())
     {
-        window.location = "whatsapp://send?text=" + "{{ $whatsapp_campaign->whatsapp_answer }}" +"&phone=" + {{ $randomphone }};
+        window.location = "whatsapp://send?text=" + "{{ $whatsapp_campaign->whatsapp_answer }}" +"&phone=" + {{ $whatsapp_phone_number }};
         // whatsapp url scheme for mobile
     }
     else
     {
-        window.location = "https://web.whatsapp.com/send?text=" + "{{ $whatsapp_campaign->whatsapp_answer }}" + "&phone=" + {{ $randomphone }};
+        window.location = "https://web.whatsapp.com/send?text=" + "{{ $whatsapp_campaign->whatsapp_answer }}" + "&phone=" + {{ $whatsapp_phone_number }};
         // open whatsapp web to send message for desktop
     }
 

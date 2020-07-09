@@ -36,15 +36,17 @@ class LeadController extends Controller
         $phonenumber = ActiveNumber::all();
 
         // List
-        $list = WhatsappNumber::all();
+        $queue = WhatsappQueue::all();
 
         if($phonenumber->isEmpty()){
 
-            foreach ($list as $whatsapp) {
+            foreach ($queue as $whatsapp) {
 
                 ActiveNumber::create(array(
 
-                    'phone_number' => $whatsapp->phonenumber
+                    'whatsapp_id' => $whatsapp->whatsapp_id,
+                    'whatsapp_campaign_id' => $whatsapp->whatsapp_campaign_id,
+                    'phonenumber' => $whatsapp->phonenumber,
 
                 ));
 
