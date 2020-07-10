@@ -32,11 +32,11 @@ class LeadController extends Controller
     public function create($id)
     {   
         $whatsapp_campaign = WhatsappCampaign::where('whatsapp_campaign_id', $id)->first();
-        $deletequeue = WhatsappQueue::all();
-        $phonenumber = ActiveNumber::all();
+        $deletequeue = WhatsappQueue::where('whatsapp_campaign_id', $id)->get();
+        $phonenumber = ActiveNumber::where('whatsapp_campaign_id', $id)->get();
 
         // List
-        $queue = WhatsappQueue::all();
+        $queue = WhatsappQueue::where('whatsapp_campaign_id', $id)->get();
 
         if($phonenumber->isEmpty()){
 
