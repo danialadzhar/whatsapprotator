@@ -115,7 +115,7 @@ class WhatsappController extends Controller
         $whatsapp_campaign_id = array();
         $phonenumber = array();
 
-        $activenumber = ActiveNumber::all();
+        $activenumber = ActiveNumber::where('whatsapp_campaign_id', $whatsapp_campaign)->get();
 
         /*
             Random Phone Number
