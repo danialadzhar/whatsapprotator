@@ -48,7 +48,7 @@
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="whatsapp_id[]" value="{{ $whatsapp->whatsapp_id }}">
                     <label class="form-check-label">
-                        {{ $whatsapp->fullname }}
+                        {{ $whatsapp->name }}
                     </label>
                 </div>
             @endforeach
