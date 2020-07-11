@@ -152,10 +152,10 @@ class WhatsappController extends Controller
 
         $whatsapp_queue->save();
         
-        /*
-            Delete phone number from Active Number
-        */
-        $get_active_number = ActiveNumber::where('phonenumber', $whatsapp_phone_number)->first();
+        /**
+         * Delete choosen random phonenumber from Whatsapp List
+         */
+        $get_active_number = ActiveNumber::where('phonenumber', $whatsapp_phone_number)->where('whatsapp_campaign_id', $request->whatsapp_campaign)->first();
 
         /*
             Save Lead
